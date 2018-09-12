@@ -1,0 +1,15 @@
+# Importing pandas
+import pandas as pd
+
+# Importing matplotlib and setting aesthetics for plotting later.
+import matplotlib.pyplot as plt
+%matplotlib inline
+%config InlineBackend.figure_format = 'svg' 
+plt.style.use('fivethirtyeight')
+
+# Reading in current data from coinmarketcap.com
+current = pd.read_json('https://api.coinmarketcap.com/v1/ticker/')
+
+currentdf= pd.DataFrame(data=current)
+
+currentdf.head()

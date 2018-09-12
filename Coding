@@ -1,3 +1,4 @@
+# Task 1: Load in the current data on cryptocurrencies from coinmarketcap.com.
 # Importing pandas
 import pandas as pd
 
@@ -9,7 +10,24 @@ plt.style.use('fivethirtyeight')
 
 # Reading in current data from coinmarketcap.com
 current = pd.read_json('https://api.coinmarketcap.com/v1/ticker/')
-
 currentdf= pd.DataFrame(data=current)
 
+# Print out some first lines
 currentdf.head()
+
+#Task 2: Load the saved CSV file and select relevant columns
+# Reading datasets/coinmarketcap_06122017.csv into pandas
+dec6 = pd.read_csv('datasets/coinmarketcap_06122017.csv')
+
+# Selecting the 'id' and the 'market_cap_usd' columns
+market_cap_raw = dec6[['id', 'market_cap_usd']]
+
+# Counting the number of values
+print(market_cap_raw.count())
+
+#Task 3: Filter out the coins with no known market capitalization.
+# Filtering out rows without a market capitalization
+cap = market_cap_raw.query('market_cap_usd > 0')
+
+# Counting the number of values again
+print(cap.count())

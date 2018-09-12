@@ -31,3 +31,6 @@ cap = market_cap_raw.query('market_cap_usd > 0')
 
 # Counting the number of values again
 print(cap.count())
+
+#Task 4: Visualize the market capitalization of the top 10 cryptocurrencies.
+
